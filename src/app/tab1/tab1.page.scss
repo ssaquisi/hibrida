@@ -1,0 +1,22 @@
+.image-preview {
+    margin-top: 20px;
+ 
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  }
+ 
+  ion-col {
+    text-align: center;
+  }
+ 
+  #label {
+    padding-right: 0.5rem;
+  }
+ 
+  .file-input {
+    display: none;
+  }

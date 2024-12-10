@@ -64,7 +64,6 @@ yarn-error.log
 /libpeerconnection.log
 testem.log
 /typings
- /src/credentials.ts
 
 /src/credentials.ts
 
@@ -73,4 +72,4 @@ testem.log
 .DS_Store
 Thumbs.db
 
- /src/environments/environments.ts
+ 
