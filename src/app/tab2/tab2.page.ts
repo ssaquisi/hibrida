@@ -7,6 +7,7 @@ import {
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 /* Importe el servicio */
 import { ProviderService } from '../services/provider.service';
 

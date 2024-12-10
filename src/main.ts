@@ -5,8 +5,8 @@ import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalo
 import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
 
-/* Importe las variables de ambiente */
-import { environment } from './environments/environment';
+/* Importe las credenciales */
+import { firebaseConfig } from './credentials';
 
 /* Importe los módulos de AngularFire */
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
@@ -18,8 +18,7 @@ bootstrapApplication(AppComponent, {
     provideIonicAngular(),
     provideRouter(routes, withPreloading(PreloadAllModules)),
     /* Inyecte los módulos de AngularFire */
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore())
-  
+    provideFirebaseApp(() => initializeApp(firebaseConfig)),
+    provideFirestore(() => getFirestore()),
   ],
 });
