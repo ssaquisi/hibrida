@@ -66,7 +66,11 @@ testem.log
 /typings
  /src/credentials.ts
 
+/src/credentials.ts
+
 
 # System files
 .DS_Store
 Thumbs.db
+
+ /src/environments/environments.ts
