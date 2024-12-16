@@ -13,32 +13,51 @@
       <ion-col>
 
         <ion-button (click)="fileInput.click()">
-          <ion-label id="label" >Seleccione un archivo</ion-label><ion-icon name="cloud-upload"></ion-icon>
+          <ion-label id="label">Seleccione un archivo</ion-label><ion-icon name="cloud-upload"></ion-icon>
         </ion-button>
-        <input #fileInput type="file" accept="image/*"  (change)="onFileSelected($event)" hidden/>
+        <input #fileInput type="file" accept="image/*" (change)="onFileSelected($event)" hidden />
 
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col size="12">
-         
+
         <!-- CARGA DE IMAGEN - INICIO -->
         @if(imageReady()) {
-          <div class="image-preview">
-            <img [src]="imageUrl()" alt="Imagen seleccionada" />
-          </div>
+        <div class="image-preview">
+          <img #image [src]="imageUrl()" alt="Imagen seleccionada" />
+        </div>
         }
-        <!-- CARGA DE IMAGEN - FIN -->       
+        <!-- CARGA DE IMAGEN - FIN -->
 
       </ion-col>
       <ion-col size="12">
-         
-        <!-- CARGA DE PREDICCIÓN - INICIO -->
 
+        <!-- CARGA DE PREDICCIÓN - INICIO -->
+        @if(modelLoaded()) {
+
+        <div class="ion-text-center ion-padding-top ion-padding-bottom">
+          <ion-button fill="outline" color="success" (click)="predict()">Predecir</ion-button>
+        </div>
+
+        <ion-list>
+          <ion-item>
+            <ion-label>Clases: {{ classLabels }} </ion-label>
+          </ion-item>
+
+          <!-- Itere sobre la lista de predicciones -->
+          @for (item of predictions; track $index) {
+          <ion-item>
+            <ion-label> {{ item?.className }} : {{ item?.probability | percent }} </ion-label>
+          </ion-item>
+          }
+        </ion-list>
+
+        }
         <!-- CARGA DE PREDICCIÓN - FIN -->
 
       </ion-col>
     </ion-row>
-  </ion-grid> 
+  </ion-grid>
 
 </ion-content>
